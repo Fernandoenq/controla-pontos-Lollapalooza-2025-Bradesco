@@ -17,7 +17,12 @@ const NfcScreen: React.FC = () => {
     console.log("Ação acionada, parando consultas e resetando estado.");
     clearRetryInterval();
     resetRfidApi();
-    navigate("/redirectscreen"); 
+
+    if (destino) {
+      navigate(destino);
+    } else {
+      navigate("/redirectscreen"); 
+    }
   };
 
   const isUUIDValid = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{2}$/.test(rfidValue);
