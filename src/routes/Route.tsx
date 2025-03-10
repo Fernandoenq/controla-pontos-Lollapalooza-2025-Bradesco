@@ -4,7 +4,7 @@ import RedirectScreen from '../pages/RedirectScreen';
 import NfcScreen from '../pages/NfcScreen';
 import FinalScreen from '../pages/FinalScreen';
 import CpfInputScreen from '../pages/CpfInputScreen';
-import MaintenanceScreen from '../pages/maintenanceScreen';
+import MaintenanceScreen from '../pages/MaintenanceScreen'
 
 <Route path="/nfcscreen" element={<NfcScreen />} />
 
