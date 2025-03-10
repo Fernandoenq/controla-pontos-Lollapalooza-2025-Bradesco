@@ -63,6 +63,8 @@ const FinalScreen: React.FC = () => {
       </div>
 
       <button className="confirm-button" onClick={handleConfirm} disabled={spendLoading}>Confirmar pontuação?</button>
+
+      <button className="confirm-button" onClick={() => navigate("/nfcscreen")}>Voltar</button>
     </div>
   );
 };

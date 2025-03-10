@@ -22,6 +22,8 @@ const RedirectScreen: React.FC = () => {
       <button className="redirect-button" onClick={() => handleRedirect("manutencao")}>
         Manutenção de pontos
       </button>
+
+      <button className="redirect-button" onClick={() => navigate("/loginpromotor")}>Deslogar</button>
     </div>
   );
 };

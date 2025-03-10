@@ -4,6 +4,7 @@ import RedirectScreen from '../pages/RedirectScreen';
 import NfcScreen from '../pages/NfcScreen';
 import FinalScreen from '../pages/FinalScreen';
 import CpfInputScreen from '../pages/CpfInputScreen';
+import ManutencaoScreen from '../pages/maintenanceScreen';
 
 <Route path="/nfcscreen" element={<NfcScreen />} />
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <Route path="/nfcscreen" element={<NfcScreen />} />
       <Route path="/finalscreen" element={<FinalScreen />} />
       <Route path="/cpfinputscreen" element={<CpfInputScreen />} />
+      <Route path="/maintenance" element={<ManutencaoScreen />} />
       </Routes>
     </Router>
   );

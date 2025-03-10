@@ -1,0 +1,102 @@
+.manutencao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #d9d9d9;
+  text-align: center;
+}
+
+.manutencao-title {
+  font-size: 4vh;
+  font-weight: bold;
+  margin-bottom: 2vh;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 50vw;
+  margin-bottom: 3vh;
+}
+
+.input-label {
+  font-size: 2.5vh;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.manutencao-input {
+  width: 100%;
+  padding: 2vh;
+  border: 0.2vh solid #ccc;
+  border-radius: 1vh;
+  font-size: 2.5vh;
+  background-color: white;
+  text-align: center;
+}
+
+.manutencao-button, .saldo-button, .sair-button {
+  background-color: black;
+  color: white;
+  padding: 2vh 4vw;
+  font-size: 2.5vh;
+  border: none;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin-top: 2vh;
+}
+
+.manutencao-button:hover, .saldo-button:hover, .sair-button:hover {
+  background-color: #333;
+}
+
+.table-container {
+  background: white;
+  padding: 2vh;
+  border-radius: 1vh;
+  margin-top: 2vh;
+  width: 100%;
+  max-width: 80vw;
+  border: 0.2vh solid #ccc;
+  
+  /* Adicionado para rolagem */
+  max-height: 25vh; /* Define uma altura máxima para a tabela */
+  overflow-y: auto; /* Ativa a rolagem vertical caso necessário */
+}
+
+/* Garante que a tabela ocupe toda a largura disponível */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.2vh solid #ccc;
+}
+
+
+th, td {
+  padding: 1vh;
+  border: 0.2vh solid #ccc;
+  text-align: center;
+  font-size: 2vh;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+
+/* Para navegadores baseados no WebKit (Chrome, Edge, Safari) */
+.manutencao-input::-webkit-inner-spin-button,
+.manutencao-input::-webkit-outer-spin-button {
+  appearance: auto; /* Garante que as setas padrão apareçam */
+  opacity: 1;
+}
+
+/* Para Firefox */
+.manutencao-input {
+  -moz-appearance: textfield; /* Remove a configuração que oculta as setas */
+}

@@ -32,7 +32,10 @@ const CpfInputScreen: React.FC = () => {
       setPopupMessage("CPF não cadastrado");
       setShowPopup(true);
     } else {
-      navigate("/nextpage", { state: data });
+      localStorage.setItem("cpfvalue", cpf);
+      console.log(localStorage.getItem("cpfvalue"));
+      console.log()
+      navigate("/maintenance", { state: data });
     }
   };
 
@@ -57,6 +60,8 @@ const CpfInputScreen: React.FC = () => {
       <button className="cpf-button" onClick={handleEnter} disabled={!validateCpf(cpf) || loading}>
         {loading ? "Carregando..." : "Entrar"}
       </button>
+
+      <button className="sair-button" onClick={() => navigate("/redirectscreen")}>SAIR</button>
       
       <p className="footer-text">HOLDING CLUBE</p>
     </div>
