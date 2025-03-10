@@ -10,7 +10,7 @@ const FinalScreen: React.FC = () => {
   const navigate = useNavigate();
   const rfidValue = localStorage.getItem("rfidValue") || "";
   const { balanceCurrentValue, loading: balanceLoading, error: balanceError } = useFetchBalance(rfidValue);
-  const { spendPoints, success, loading: spendLoading, error: spendError } = useSpendWithBar();
+  const { spendPoints, loading: spendLoading } = useSpendWithBar();
   const randomQRCodeURL = "https://bradesco-pre-cadastro.picbrand.dev.br/login";
 
   const [popupMessage, setPopupMessage] = useState<string>("");
