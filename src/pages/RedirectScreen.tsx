@@ -6,7 +6,11 @@ const RedirectScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const handleRedirect = (type: string) => {
-    navigate("/nfcscreen", { state: { tipoCadastro: type } });
+    if (type === "bar") {
+      navigate("/nfcscreen");
+    } else if (type === "manutencao") {
+      navigate("/cpfinputscreen");
+    }
   };
 
   return (
@@ -18,13 +22,8 @@ const RedirectScreen: React.FC = () => {
       <button className="redirect-button" onClick={() => handleRedirect("manutencao")}>
         Manutenção de pontos
       </button>
-      
     </div>
   );
 };
 
 export default RedirectScreen;
-
-//<button className="redirect-button" onClick={() => handleRedirect("login")}>
-//Login
-//</button>

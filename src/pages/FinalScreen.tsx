@@ -44,8 +44,7 @@ const FinalScreen: React.FC = () => {
       <Popup show={showPopup} message={popupMessage} />
 
       <h1 className="title">Confirmação de pontos</h1>
-      <h2 className="subtitle">MATEUS</h2>
-      <p className="description">Você vai ganhar 10 pontos para participar do bar</p>
+      <p className="description">Você vai gastar 10 pontos para participar do bar</p>
 
       <div className="saldo-container">
         {balanceLoading ? (
@@ -60,7 +59,7 @@ const FinalScreen: React.FC = () => {
       <p className="description">Caso queira ver toda a sua carteira de pontos, leia o QRCode abaixo</p>
 
       <div className="qrcode">
-        <QRCodeSVG value={randomQRCodeURL} size={150} />
+        <QRCodeSVG value={randomQRCodeURL} size={500} />
       </div>
 
       <button className="confirm-button" onClick={handleConfirm} disabled={spendLoading}>Confirmar pontuação?</button>

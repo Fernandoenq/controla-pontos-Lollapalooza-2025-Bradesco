@@ -1,40 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import useRfidApi from "../hooks/useRfidApi"; // 🔹 Importando o hook
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useRfidApi from "../hooks/useRfidApi";
 import "../styles/NfcScreen.css";
 import nfcImage from "../assets/nfclogo.png";
 
 const NfcScreen: React.FC = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { rfidValue, clearRetryInterval, resetRfidApi } = useRfidApi(); // 🔹 Usando o hook
-
-  const [tipoCadastro, setTipoCadastro] = useState<string>(
-    localStorage.getItem("tipoCadastro") || location.state?.tipoCadastro || "desconhecido"
-  );
+  const { rfidValue, clearRetryInterval, resetRfidApi } = useRfidApi();
 
   useEffect(() => {
     console.log("Limpando cache do NFC...");
     localStorage.removeItem("rfidValue");
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (location.state?.tipoCadastro) {
-      console.log("Atualizando tipoCadastro:", location.state.tipoCadastro);
-      setTipoCadastro(location.state.tipoCadastro);
-      localStorage.setItem("tipoCadastro", location.state.tipoCadastro);
-    }
-  }, [location.state]);
+  }, []);
 
   const handleAction = (destino?: string) => {
     console.log("Ação acionada, parando consultas e resetando estado.");
-    clearRetryInterval(); // Para qualquer reconsulta
-    resetRfidApi(); // Reseta os estados do RFID (para ignorar a primeira chamada depois)
+    clearRetryInterval();
+    resetRfidApi();
 
     if (destino) {
-      navigate(destino, { state: { tipoCadastro, rfid: rfidValue } });
+      navigate(destino);
     } else {
-      navigate(-1); // Voltar para a página anterior
+      navigate(-1);
     }
   };
 
@@ -50,17 +37,11 @@ const NfcScreen: React.FC = () => {
         Voltar
       </button>
 
-      <button className="nfc-button" onClick={() => handleAction(getDestino())} disabled={!isUUIDValid}>
+      <button className="nfc-button" onClick={() => handleAction("/finalscreen")} disabled={!isUUIDValid}>
         Confirmar
       </button>
     </div>
   );
-
-  function getDestino() {
-    if (tipoCadastro === "bar") return "/finalscreen";
-    if (tipoCadastro === "manutencao") return "/manutencao";
-    return "/";
-  }
 };
 
 export default NfcScreen;
