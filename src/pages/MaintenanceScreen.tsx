@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../styles/maintenanceScreen.css";
+import "../styles/MaintenanceScreen.css";
 import Popup from "../components/Popup"; 
 import useSpendWithMaintenance from "../hooks/useSpendWithMaintenance"; // Importando o Hook
 
