@@ -16,7 +16,7 @@ const useSpendWithMaintenance = () => {
     };
     console.log(payload)
     try {
-      const response = await fetch("http://18.231.158.211:3335/Balance/SpendWithMaintenance", {
+      const response = await fetch("https://api-back.picbrand.dev.br/Balance/SpendWithMaintenance", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

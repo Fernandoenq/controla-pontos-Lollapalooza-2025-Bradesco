@@ -5,7 +5,7 @@ const useFetchBalance = (rfidValue: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const apiUrl = "http://18.231.158.211:3335/Balance/GetCurrentBalanceByExternalCode";
+  const apiUrl = "https://api-back.picbrand.dev.br/Balance/GetCurrentBalanceByExternalCode";
 
   useEffect(() => {
     const fetchBalance = async () => {

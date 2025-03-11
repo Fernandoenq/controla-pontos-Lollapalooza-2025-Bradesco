@@ -10,7 +10,7 @@ const useSpendWithBar = () => {
     setError(null);
     setSuccess(false);
     const organizerId = localStorage.getItem("OrganizerId");
-    const apiUrl = `http://18.231.158.211:3335/Balance/SpendWithBar/${rfidValue}/${organizerId}`;
+    const apiUrl = `https://api-back.picbrand.dev.br/Balance/SpendWithBar/${rfidValue}/${organizerId}`;
     console.log(apiUrl)
     try {
       const response = await fetch(apiUrl, {
