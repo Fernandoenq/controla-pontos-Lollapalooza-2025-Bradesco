@@ -5,7 +5,6 @@ const useSpendWithMaintenance = () => {
   const [showPopup, setShowPopup] = useState<boolean>(false);
 
   const sendRequest = async (impactValue: number, justification: string) => {
-    const cpfvalue = localStorage.getItem("cpfvalue") || "";
     const organizerId = localStorage.getItem("OrganizerId") || "";
     const rfidvalue = localStorage.getItem("rfidValue") || "";
 
