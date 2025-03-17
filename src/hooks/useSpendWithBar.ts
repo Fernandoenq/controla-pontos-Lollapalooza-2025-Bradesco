@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const useSpendWithBar = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -11,7 +10,7 @@ const useSpendWithBar = () => {
     setSuccess(false);
     const organizerId = localStorage.getItem("OrganizerId");
     const apiUrl = `https://api-back.picbrand.dev.br/Balance/SpendWithBar/${rfidValue}/${organizerId}`;
-    console.log(apiUrl)
+    
     try {
       const response = await fetch(apiUrl, {
         method: "PUT",
@@ -19,9 +18,8 @@ const useSpendWithBar = () => {
           "Content-Type": "application/json"
         }
       });
-      
+
       const data = await response.json();
-      console.log(rfidValue);
       
       if (response.status === 200) {
         setSuccess(true);

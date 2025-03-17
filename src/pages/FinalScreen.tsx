@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { QRCodeSVG } from "qrcode.react";
-import useFetchBalance from "../hooks/useFetchBalance";
+import useFetchBalances from "../hooks/useFetchBalances";
 import useSpendWithBar from "../hooks/useSpendWithBar";
 import Popup from "../components/Popup";
 import "../styles/FinalScreen.css";
@@ -9,12 +9,15 @@ import "../styles/FinalScreen.css";
 const FinalScreen: React.FC = () => {
   const navigate = useNavigate();
   const rfidValue = localStorage.getItem("rfidValue") || "";
-  const { balanceCurrentValue, loading: balanceLoading, error: balanceError } = useFetchBalance(rfidValue);
+  const { balances, loading: balanceLoading, error: balanceError } = useFetchBalances();
   const { spendPoints, loading: spendLoading } = useSpendWithBar();
   const randomQRCodeURL = "https://bradesco-pre-cadastro.picbrand.dev.br/login";
 
   const [popupMessage, setPopupMessage] = useState<string>("");
   const [showPopup, setShowPopup] = useState<boolean>(false);
+
+  // Calculando saldo total corretamente somando os impactos
+  const totalSaldo = balances.reduce((sum, balance) => sum + balance.Impact, 0);
 
   const handleConfirm = async () => {
     const result = await spendPoints(rfidValue);
@@ -52,7 +55,7 @@ const FinalScreen: React.FC = () => {
         ) : balanceError ? (
           <span className="text-danger">{balanceError}</span>
         ) : (
-          <button className="saldo-button">Saldo atual: {balanceCurrentValue}</button>
+          <button className="saldo-button">Saldo atual: {totalSaldo}</button>
         )}
       </div>
 
@@ -64,7 +67,7 @@ const FinalScreen: React.FC = () => {
 
       <button className="confirm-button" onClick={handleConfirm} disabled={spendLoading}>Confirmar pontuação?</button>
 
-      <button className="confirm-button" onClick={() => navigate("/nfcscreen")}>Voltar</button>
+      <button className="confirm-button" onClick={() => navigate("/redirectscreen")}>Voltar</button>
     </div>
   );
 };

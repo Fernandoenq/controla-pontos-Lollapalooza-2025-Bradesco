@@ -7,9 +7,10 @@ const useSpendWithMaintenance = () => {
   const sendRequest = async (impactValue: number, justification: string) => {
     const cpfvalue = localStorage.getItem("cpfvalue") || "";
     const organizerId = localStorage.getItem("OrganizerId") || "";
+    const rfidvalue = localStorage.getItem("rfidValue") || "";
 
     const payload = {
-      ExternalCode: cpfvalue,
+      ExternalCode: rfidvalue,
       OrganizerId: organizerId,
       Operation: impactValue === 10 ? 1 : 2,
       Justification: justification,

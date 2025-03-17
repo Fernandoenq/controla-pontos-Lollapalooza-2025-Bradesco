@@ -17,7 +17,7 @@ const useRfidApi = () => {
       }
 
       const response = await fetch(
-        `https://api-back.picbrand.dev.br/Organizer/GetRegisterExternalCode/${organizerId}`,
+        `https://api-back.picbrand.dev.br/Organizer/GetBarExternalCode/${organizerId}`,
         {
           method: "PUT",
           headers: {

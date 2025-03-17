@@ -6,11 +6,7 @@ const RedirectScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const handleRedirect = (type: string) => {
-    if (type === "bar") {
-      navigate("/nfcscreen");
-    } else if (type === "manutencao") {
-      navigate("/cpfinputscreen");
-    }
+    navigate("/nfcscreen", { state: { type } });
   };
 
   return (

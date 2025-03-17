@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useRfidApi from "../hooks/useRfidApi";
 import "../styles/NfcScreen.css";
 import nfcImage from "../assets/nfclogo.png";
 
 const NfcScreen: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const tipo = location.state?.type || ""; // Obtendo o valor passado
+
   const { rfidValue, clearRetryInterval, resetRfidApi } = useRfidApi();
 
   useEffect(() => {
@@ -25,6 +28,14 @@ const NfcScreen: React.FC = () => {
     }
   };
 
+  const handleConfirm = () => {
+    if (tipo === "bar") {
+      navigate("/finalscreen");
+    } else if (tipo === "manutencao") {
+      navigate("/maintenance");
+    }
+  };
+
   const isUUIDValid = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{2}$/.test(rfidValue);
 
   return (
@@ -37,7 +48,7 @@ const NfcScreen: React.FC = () => {
         Voltar
       </button>
 
-      <button className="nfc-button" onClick={() => handleAction("/finalscreen")} disabled={!isUUIDValid}>
+      <button className="nfc-button" onClick={handleConfirm} disabled={!isUUIDValid}>
         Confirmar
       </button>
     </div>
