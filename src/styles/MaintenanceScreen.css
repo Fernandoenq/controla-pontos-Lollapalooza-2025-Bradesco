@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start; /* Alterado de center para flex-start */
+  min-height: 100vh; /* Alterado de height para min-height */
   width: 100vw;
-  background-color: #d9d9d9;
+  background-color: '#d9d9d9';
   text-align: center;
+  overflow-y: auto; /* Permite scroll vertical */
 }
 
 .manutencao-title {
@@ -35,14 +36,14 @@
   padding: 2vh;
   border: 0.2vh solid #ccc;
   border-radius: 1vh;
-  font-size: 2.5vh;
+
   background-color: white;
   text-align: center;
 }
 
-.manutencao-button, .saldo-button, .sair-button {
-  background-color: black;
-  color: white;
+.manutencao-button,
+.saldo-button,
+.sair-button {
   padding: 2vh 4vw;
   font-size: 2.5vh;
   border: none;
@@ -51,35 +52,33 @@
   margin-top: 2vh;
 }
 
-.manutencao-button:hover, .saldo-button:hover, .sair-button:hover {
+.manutencao-button:hover,
+.saldo-button:hover,
+.sair-button:hover {
   background-color: #333;
 }
 
 .table-container {
-  background: white;
-  padding: 2vh;
-  border-radius: 1vh;
   margin-top: 2vh;
   width: 100%;
   max-width: 80vw;
-  border: 0.2vh solid #ccc;
-  
+
   /* Adicionado para rolagem */
   max-height: 25vh; /* Define uma altura máxima para a tabela */
   overflow-y: auto; /* Ativa a rolagem vertical caso necessário */
 }
-
+.table-container thead th {
+  background-color: #fff;
+}
 /* Garante que a tabela ocupe toda a largura disponível */
 table {
   width: 100%;
-  border-collapse: collapse;
-  border: 0.2vh solid #ccc;
 }
 
-
-th, td {
+th,
+td {
   padding: 1vh;
-  border: 0.2vh solid #ccc;
+
   text-align: center;
   font-size: 2vh;
 }
@@ -87,7 +86,6 @@ th, td {
 th {
   background-color: #f4f4f4;
 }
-
 
 /* Para navegadores baseados no WebKit (Chrome, Edge, Safari) */
 .manutencao-input::-webkit-inner-spin-button,
@@ -99,4 +97,29 @@ th {
 /* Para Firefox */
 .manutencao-input {
   -moz-appearance: textfield; /* Remove a configuração que oculta as setas */
+}
+/* styles/MaintenanceScreen.css */
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .table-container {
+    max-height: 300px; /* Altura adequada para dispositivos móveis */
+    overflow-y: auto; /* Permite a rolagem se necessário */
+  }
+}
+
+/* Estilos para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .table-container {
+    max-height: 400px; /* Altura moderada para tablets */
+    overflow-y: auto;
+  }
+}
+
+/* Estilos para telas grandes como totens */
+@media (min-width: 1024px) {
+  .table-container {
+    max-height: 60vh; /* Usa uma porcentagem da altura da tela para totens */
+    overflow-y: auto;
+  }
 }

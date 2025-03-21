@@ -2,21 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: center; /* Alterado de center para flex-start */
+    min-height: 100vh; /* Alterado de height para min-height */
+    width: 100%; /* Assegura que ocupa a largura total */
     background-color: #d3d3d3;
     text-align: center;
+    overflow: auto; /* Permite scroll */
 }
+
 
 h1 {
     font-size: 3vh;
     font-weight: bold;
-    margin-bottom: 1vh;
+   
 }
 
 p {
     font-size: 2vh;
-    margin-bottom: 1vh;
+   
 }
 
 .saldo {
@@ -24,7 +27,7 @@ p {
     color: white;
     padding: 1vh 2vh;
     border-radius: 1vh;
-    font-size: 2vh;
+    
     font-weight: bold;
 }
 
@@ -44,5 +47,5 @@ button {
 }
 
 button:hover {
-    background-color: #444;
+    background-color: #c19f9f;
 }
