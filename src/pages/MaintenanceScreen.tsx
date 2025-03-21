@@ -52,7 +52,7 @@ const MaintenanceScreen: React.FC = () => {
   useEffect(() => {
     const updateTableHeight = () => {
       if (window.innerWidth < 768) {
-        setTableHeight("300px");
+        setTableHeight(tableHeight);
       } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
         setTableHeight("400px");
       } else {
@@ -275,7 +275,7 @@ const MaintenanceScreen: React.FC = () => {
             style={{
               maxHeight:
                 window.innerWidth < 768
-                  ? "300px"
+                  ? tableHeight
                   : window.innerWidth >= 768 && window.innerWidth < 1024
                   ? "400px"
                   : "60vh",
