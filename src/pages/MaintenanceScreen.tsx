@@ -14,7 +14,7 @@ interface Balance {
 
 const MaintenanceScreen: React.FC = () => {
   const navigate = useNavigate();
-  const [fontSize, setFontSize] = useState("34px"); // Tamanho padrão da fonte
+  const [_fontSize, setFontSize] = useState("34px"); // Tamanho padrão da fonte
   const [tableHeight, setTableHeight] = useState<string>("300px");
   const { balances, loading, error, fetchBalances } = useFetchBalances();
   const [impactValue, setImpactValue] = useState<number>(10);

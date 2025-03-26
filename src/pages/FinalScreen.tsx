@@ -9,7 +9,7 @@ import "../styles/FinalScreen.css";
 const FinalScreen: React.FC = () => {
   const navigate = useNavigate();
   const [qrSize, setQrSize] = useState(500); // Tamanho padrão para tablets e telas maiores
-  const [fontSize, setFontSize] = useState("24px"); // Tamanho padrão da fonte
+  const [_fontSize, setFontSize] = useState("24px"); // Tamanho padrão da fonte
   const rfidValue = localStorage.getItem("rfidValue") || "";
   const { balances, loading: balanceLoading, error: balanceError } = useFetchBalances();
   const { spendPoints, loading: spendLoading } = useSpendWithBar();
