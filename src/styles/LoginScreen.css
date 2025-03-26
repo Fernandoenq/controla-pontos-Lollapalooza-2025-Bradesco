@@ -92,3 +92,14 @@
     z-index: 1000;
     font-size: 16px;
 }
+/* Media query para tablets com alta resolução */
+@media only screen and (min-device-width : 1600px) and (max-device-width : 3000px) {
+    .login-container {
+        font-size: 74px; /* Aumenta o tamanho da fonte geral */
+    }
+
+    .login-container input, .login-container button {
+        font-size: 20px; /* Aumenta o tamanho da fonte para inputs e botões */
+        padding: 20px; /* Aumenta o padding para melhor acessibilidade */
+    }
+}

@@ -37,6 +37,7 @@ const LoginScreen: React.FC = () => {
       <Popup show={showPopup} message={popupMessage} />
       <h1 className="mb-4" style={{ color: "#cd092f" ,
           fontFamily: 'BradescoSansBold', // Aplica a fonte personalizada
+          fontSize: "3vh", // Ajuste opcional para tamanho da fonte
         }}>Login do promotor</h1>
 
       <div className="input-container">
@@ -57,6 +58,7 @@ const LoginScreen: React.FC = () => {
          
           style={{ backgroundColor: "#cd092f", borderRadius: "9999px",
             fontFamily: 'BradescoSans', // Aplica a fonte personalizada
+            fontSize: "2vh", // Ajuste opcional para tamanho da fonte
            }} // Max border-radius for full pill shape
         />
       </div>
@@ -72,6 +74,7 @@ const LoginScreen: React.FC = () => {
           onChange={(e) => setSecretKey(e.target.value)} 
           style={{ backgroundColor: "#cd092f", borderRadius: "9999px",
             fontFamily: 'BradescoSans', 
+            fontSize: "2vh", // Ajuste opcional para tamanho da fonte
            }} 
         />
         
@@ -88,7 +91,7 @@ const LoginScreen: React.FC = () => {
             borderStyle: "solid", // Estilo da borda sólido
             borderRadius: "9999px", // Bordas completamente arredondadas
             padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
-            fontSize: "24px", // Ajuste opcional para tamanho da fonte
+            fontSize: "3vh", // Ajuste opcional para tamanho da fonte
             fontWeight: "bold", // Define a fonte como negrito
             height: "50px", // Define a altura do botão para 50px
             fontFamily: 'BradescoSansButtom', // Aplica a fonte personalizada

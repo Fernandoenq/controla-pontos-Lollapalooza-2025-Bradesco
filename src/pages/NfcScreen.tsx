@@ -78,26 +78,7 @@ const NfcScreen: React.FC = () => {
         {rfidValue ? `Cartão: ${rfidValue}` : "Aguardando leitura..."}
       </p>
 
-      <button
-        className="nfc-button"
-        onClick={() => handleAction()}
-        style={{
-          backgroundColor: "#cd092f", // Cor de fundo vermelha
-          color: "white", // Texto branco
-          borderColor: "white", // Borda branca
-          borderWidth: "1px", // Largura da borda de 1px
-          borderStyle: "solid", // Estilo da borda sólido
-          borderRadius: "9999px", // Bordas completamente arredondadas
-          padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
-          fontSize: "24px", // Ajuste opcional para tamanho da fonte
-          fontWeight: "bold", // Define a fonte como negrito
-          height: "80px", // Define a altura do botão para 50px
-          fontFamily: "BradescoSansBold", // Aplica a fonte personalizada
-          marginBottom: "20px", // Adiciona margem inferior de 20px
-        }}
-      >
-        Voltar
-      </button>
+     
 
       <button
         className="nfc-button"
@@ -111,13 +92,33 @@ const NfcScreen: React.FC = () => {
           borderStyle: "solid", // Estilo da borda sólido
           borderRadius: "9999px", // Bordas completamente arredondadas
           padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
-          fontSize: "24px", // Ajuste opcional para tamanho da fonte
+          fontSize: "2vh", // Ajuste opcional para tamanho da fonte
           fontWeight: "bold", // Define a fonte como negrito
           height: "80px", // Define a altura do botão para 50px
           fontFamily: "BradescoSansButtom", // Aplica a fonte personalizada
         }}
       >
         Confirmar
+      </button>
+      <button
+        className="nfc-button"
+        onClick={() => handleAction()}
+        style={{
+          backgroundColor: "#cd092f", // Cor de fundo vermelha
+          color: "white", // Texto branco
+          borderColor: "white", // Borda branca
+          borderWidth: "1px", // Largura da borda de 1px
+          borderStyle: "solid", // Estilo da borda sólido
+          borderRadius: "9999px", // Bordas completamente arredondadas
+          padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+          fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+          fontWeight: "bold", // Define a fonte como negrito
+          height: "80px", // Define a altura do botão para 50px
+          fontFamily: "BradescoSansButtom", // Aplica a fonte personalizada
+          marginTop: "20px", // Adiciona margem inferior de 20px
+        }}
+      >
+        Voltar
       </button>
     </div>
   );

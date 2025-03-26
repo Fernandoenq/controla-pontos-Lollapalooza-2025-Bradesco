@@ -70,26 +70,27 @@ const FinalScreen: React.FC = () => {
       <Popup show={showPopup} message={popupMessage} />
 
       <h1 className="title" style={{
-        color: "#cd092f",
+        color: "white",
         fontFamily: "BradescoSansBold",
-        fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
-       marginTop: "20px", // Adiciona um espaçamento no topo
+        fontSize: "3vh", // Ajuste opcional para tamanho da fonte
+       
       }}>
         Confirmação de pontos
       </h1>
       <p className="description" style={{
-          color: "#cd092f",
-          fontFamily: "BradescoSans",
-          fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
+          color: "white",
+          fontFamily: "BradescoSansBold",
+          fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+          marginTop: "4vh",
         }}>
         Você vai gastar 10 pontos para participar do bar
       </p>
 
       <div className="saldo-container mb-10">
         {balanceLoading ? (
-          <span>Carregando...</span>
+          <span style={{ fontSize: "2vh"}}>Carregando...</span>
         ) : balanceError ? (
-          <span className="text-danger">{balanceError}</span>
+          <span className="text-danger" style={{ fontSize: "2vh"}}>{balanceError}</span>
         ) : (
           <button className="saldo-button" style={{
             backgroundColor: "#cd092f",
@@ -99,9 +100,10 @@ const FinalScreen: React.FC = () => {
             borderStyle: "solid",
             borderRadius: "9999px",
             padding: "12px 20px",
-            fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
+            fontSize: "2vh", // Ajuste opcional para tamanho da fonte
             fontWeight: "bold",
-            height: "80px",
+            height: "6vh",
+            width: "20vh",
             fontFamily: "BradescoSansBold",
             marginBottom: "20px",
           }}>Saldo atual: {totalSaldo}</button>
@@ -109,9 +111,10 @@ const FinalScreen: React.FC = () => {
       </div>
 
       <p className="description" style={{
-          color: "#cd092f",
+          width: "80%",
           fontFamily: "BradescoSans",
-          fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
+          fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+          color: "white",
         }}>
         Caso queira ver toda a sua carteira de pontos, leia o QRCode abaixo
       </p>
@@ -125,18 +128,18 @@ const FinalScreen: React.FC = () => {
   onClick={handleConfirm}
   disabled={spendLoading}
   style={{
-    backgroundColor: "#cd092f",
-    color: "white",
-    borderColor: "white",
-    borderWidth: "1px",
-    borderStyle: "solid",
-    borderRadius: "9999px",
-    padding: "12px 20px",
-    fontSize: fontSize,
-    fontWeight: "bold",
-    height: "80px",
-    fontFamily: "BradescoSansBold",
-    marginBottom: "20px",
+    backgroundColor: "#cd092f", // Cor de fundo vermelha
+    color: "white", // Texto branco
+    borderColor: "white", // Borda branca
+    borderWidth: "1px", // Largura da borda de 1px
+    borderStyle: "solid", // Estilo da borda sólido
+    borderRadius: "9999px", // Bordas completamente arredondadas
+    padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+    fontSize: "3vh", // Ajuste opcional para tamanho da fonte
+    fontWeight: "bold", // Define a fonte como negrito
+    height: "5vh", // Define a altura do botão para 50px
+    fontFamily: 'BradescoSansButtom', // Aplica a fonte personalizada
+    width: "40%", // Define a largura do botão para 100% do container
   }}
 >
   {spendLoading ? "Carregando..." : "Confirmar ?"}
@@ -144,18 +147,19 @@ const FinalScreen: React.FC = () => {
 
 
       <button className="confirm-button" onClick={() => navigate("/redirectscreen")} style={{
-            backgroundColor: "#cd092f",
-            color: "white",
-            borderColor: "white",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderRadius: "9999px",
-            padding: "12px 20px",
-            fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
-            fontWeight: "bold",
-            height: "80px",
-            fontFamily: "BradescoSansBold",
-            marginBottom: "20px",
+            backgroundColor: "#cd092f", // Cor de fundo vermelha
+            color: "white", // Texto branco
+            borderColor: "white", // Borda branca
+            borderWidth: "1px", // Largura da borda de 1px
+            borderStyle: "solid", // Estilo da borda sólido
+            borderRadius: "9999px", // Bordas completamente arredondadas
+            padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+            fontSize: "3vh", // Ajuste opcional para tamanho da fonte
+            fontWeight: "bold", // Define a fonte como negrito
+            height: "5vh", // Define a altura do botão para 50px
+            fontFamily: 'BradescoSansButtom', // Aplica a fonte personalizada
+            marginTop: "20px", // Adiciona um espaçamento no topo
+            width: "40%", // Define a largura do botão para 100% do container
           }}>Voltar</button>
     </div>
   );

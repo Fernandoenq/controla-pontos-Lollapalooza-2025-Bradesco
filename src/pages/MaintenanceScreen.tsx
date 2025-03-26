@@ -74,15 +74,16 @@ const MaintenanceScreen: React.FC = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         overflowY: "auto", // Adiciona rolagem vertical
+        paddingBottom:"2vh"
       }}
     >
       <h1
         className="manutencao-title"
         style={{
-          color: "#cd092f",
+          color: "white",
           fontFamily: "BradescoSansBold",
-          fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
-          marginTop: "80px", // Adiciona um espaçamento no topo
+          fontSize: "3vh", // Ajuste opcional para tamanho da fonte
+          marginTop: "15vh", // Adiciona um espaçamento no topo
         }}
       >
         Adicione ou subtraia mais pontos
@@ -100,9 +101,9 @@ const MaintenanceScreen: React.FC = () => {
             <label
               className="input-label"
               style={{
-                color: "#cd092f",
+                color: "white",
                 fontFamily: "BradescoSans",
-                fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
+                fontSize: "2vh", // Ajuste opcional para tamanho da fonte
                 marginTop: "0px", // Adiciona um espaçamento no topo
               }}
             >
@@ -111,10 +112,11 @@ const MaintenanceScreen: React.FC = () => {
             <label
               className="input-label"
               style={{
-                color: "#cd092f",
+                color: "white",
                 fontFamily: "BradescoSans",
-                fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
+
                 marginTop: "0px", // Adiciona um espaçamento no topo
+                fontSize: "2vh", // Ajuste opcional para tamanho da fonte
               }}
             >
               QUAL O MOTIVO:
@@ -150,88 +152,92 @@ const MaintenanceScreen: React.FC = () => {
               }}
             >
               <div
+                className="button-container"
                 style={{
                   display: "flex",
-                  width: "100%",
                   justifyContent: "space-around",
+                  alignItems: "center",
+                  padding: "10px",
                 }}
               >
                 <button
-                  className={`stepper-button ${
-                    impactValue === -10 ? "active" : ""
-                  }`}
+                  className="stepper-button"
                   onClick={() => setImpactValue(-10)}
                   style={{
-                    backgroundColor: "#cd092f",
+                    backgroundColor:
+                      impactValue === -10 ? "#cd092f" : "transparent",
                     color: "white",
                     borderColor: "white",
                     borderWidth: "1px",
                     borderStyle: "solid",
                     borderRadius: "9999px",
                     padding: "12px 20px",
-                    fontSize: fontSize,
+                    fontSize: "3vh",
                     fontWeight: "bold",
-                    height: "80px",
+                    height: "5vh",
                     fontFamily: "BradescoSansBold",
-                    marginBottom: "20px",
+                    width: "50%",
+                    margin: "0 10px",
+                    transition: "background-color 0.3s", // Suaviza a transição de cor
                   }}
                 >
                   -10
                 </button>
                 <button
-                  className={`stepper-button ${
-                    impactValue === 10 ? "active" : ""
-                  }`}
+                  className="stepper-button"
                   onClick={() => setImpactValue(10)}
                   style={{
-                    backgroundColor: "#cd092f",
+                    backgroundColor:
+                      impactValue === 10 ? "#cd092f" : "transparent",
                     color: "white",
                     borderColor: "white",
                     borderWidth: "1px",
                     borderStyle: "solid",
                     borderRadius: "9999px",
                     padding: "12px 20px",
-                    fontSize: fontSize,
+                    fontSize: "3vh",
                     fontWeight: "bold",
-                    height: "80px",
+                    height: "5vh",
                     fontFamily: "BradescoSansBold",
-                    marginBottom: "20px",
+                    width: "50%",
+                    margin: "0 10px",
+                    transition: "background-color 0.3s", // Suaviza a transição de cor
                   }}
                 >
                   +10
                 </button>
               </div>
-              <input
-                type="number"
-                className="manutencao-input stepper-input"
-                value={impactValue}
-                readOnly
-                style={{
-                  backgroundColor: "#cd092f",
-                  borderRadius: "9999px",
-                  fontFamily: "BradescoSans", // Aplica a fonte personalizada
-                }}
-              />
             </div>
           </div>
 
-          <div className="button-container">
+          <div
+            className="button-container"
+            style={{
+              display: "flex", // Usa flexbox para alinhar os botões
+              justifyContent: "space-around", // Distribui o espaço de forma uniforme ao redor dos botões
+              gap: "30px", // Adiciona um espaçamento entre os botões
+              alignItems: "center", // Centraliza os botões verticalmente
+              padding: "10px", // Adiciona padding ao redor dos botões dentro do container
+              marginBottom: "20px", // Adiciona margem inferior para criar espaço
+            }}
+          >
             <button
               className="manutencao-button"
               onClick={handleAdd}
               style={{
-                backgroundColor: "#cd092f",
-                color: "white",
-                borderColor: "white",
-                borderWidth: "1px",
-                borderStyle: "solid",
-                borderRadius: "9999px",
-                padding: "12px 20px",
-                fontSize: fontSize,
-                fontWeight: "bold",
-                height: "80px",
-                fontFamily: "BradescoSansBold",
-                marginRight: "20px", // Adiciona espaço entre os botões
+                backgroundColor: "#cd092f", // Cor de fundo vermelha
+                color: "white", // Texto branco
+                borderColor: "white", // Borda branca
+                borderWidth: "1px", // Largura da borda de 1px
+                borderStyle: "solid", // Estilo da borda sólido
+                borderRadius: "9999px", // Bordas completamente arredondadas
+                padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+                fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+                fontWeight: "bold", // Define a fonte como negrito
+                height: "5vh", // Define a altura do botão
+                fontFamily: "BradescoSansButtom", // Aplica a fonte personalizada
+                width: "70%", // Aumenta a largura para 50% do container
+                margin: "0 10px", // Adiciona margem horizontal para criar espaço
               }}
             >
               Adicionar
@@ -240,31 +246,39 @@ const MaintenanceScreen: React.FC = () => {
               className="sair-button"
               onClick={() => navigate("/redirectscreen")}
               style={{
-                backgroundColor: "#cd092f",
-                color: "white",
-                borderColor: "white",
-                borderWidth: "1px",
-                borderStyle: "solid",
-                borderRadius: "9999px",
-                padding: "12px 20px",
-                fontSize: fontSize,
-                fontWeight: "bold",
-                height: "80px",
-                fontFamily: "BradescoSansBold",
+                backgroundColor: "transparent", // Cor de fundo transparente
+                color: "white", // Texto branco
+                borderColor: "white", // Borda branca
+                borderWidth: "1px", // Largura da borda de 1px
+                borderStyle: "solid", // Estilo da borda sólido
+                borderRadius: "9999px", // Bordas completamente arredondadas
+                padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+                fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+                fontWeight: "bold", // Define a fonte como negrito
+                height: "5vh", // Define a altura do botão
+                fontFamily: "BradescoSansButtom", // Aplica a fonte personalizada
+                width: "50%", // Aumenta a largura para 50% do container
+                margin: "0 10px", // Adiciona margem horizontal para criar espaço
               }}
             >
               Voltar
             </button>
           </div>
+
           <div
             style={{
-              color: "#cd092f",
-              padding: "12px 20px",
-              fontSize: fontSize, // Aplica o tamanho dinâmico da fonte
-              fontWeight: "bold",
-              height: "10px",
-              fontFamily: "BradescoSansBold",
-              margin: "20px 100px", // Adiciona espaço entre o texto e a tabela
+              backgroundColor: "#cd092f", // Cor de fundo vermelha
+              color: "white", // Texto branco
+              borderColor: "white", // Borda branca
+              borderWidth: "1px", // Largura da borda de 1px
+              borderStyle: "solid", // Estilo da borda sólido
+              borderRadius: "9999px", // Bordas completamente arredondadas
+              padding: "12px 20px", // Aumenta o padding vertical para 12px e horizontal para 20px
+              fontSize: "2vh", // Ajuste opcional para tamanho da fonte
+              fontWeight: "bold", // Define a fonte como negrito
+              height: "5vh", // Define a altura do botão para 50px
+              fontFamily: "BradescoSansBold", // Aplica a fonte personalizada
+              width: "40%", // Define a largura do botão para 100% do container
             }}
           >
             Saldo atual: {totalSaldo}
@@ -273,15 +287,10 @@ const MaintenanceScreen: React.FC = () => {
           <div
             className="table-container p-4 mb-10"
             style={{
-              maxHeight:
-                window.innerWidth < 768
-                  ? tableHeight
-                  : window.innerWidth >= 768 && window.innerWidth < 1024
-                  ? "400px"
-                  : "60vh",
+              maxHeight: "40vh",
               overflowY: "auto",
               width: "100%",
-              margin: "auto",
+
               backgroundColor: "white",
             }}
           >
